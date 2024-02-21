@@ -1,6 +1,6 @@
 namespace hw3{
 
-    public sealed class TwoDimensionalArray : Array {
+    public sealed class TwoDimensionalArray : BaseArray {
 
          private int[,] _arr2;
         public TwoDimensionalArray(int[,] array, int rows, int columns, bool userFilled = false){

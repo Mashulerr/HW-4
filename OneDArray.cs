@@ -1,6 +1,6 @@
 namespace hw3{
 
-    public sealed class OneDimensionalArray : Array {
+    public sealed class OneDimensionalArray : BaseArray {
 
         private int[] _arr1;
         public OneDimensionalArray(int[] array, int length, bool userFilled = false){
@@ -45,6 +45,39 @@ namespace hw3{
         }
         return sum / _arr1.Length;
     }
+
+ public void DeleteElementsBiggerThan100()
+    {
+        int Index = 0;
+        for (int i = 0; i < _arr1.Length; i++)
+        {
+            if (_arr1[i] < 100)
+            {
+                if (_arr1[i] > 100)
+                {
+                    Index += 1;
+                }
+            }
+        }
+        int[] newArray = new int[Index];
+
+        int NewIndex = 0;
+
+        foreach (int num in _arr1)
+        {
+            if (num >= -100 && num <= 100)
+            {
+                newArray[NewIndex] = num;
+                NewIndex += 1;
+            }
+        }
+        for (int i = 0; i < _arr1.Length; i++)
+        {
+            Console.Write(_arr1[i] + " ");
+        }
+        Console.WriteLine();
+    }
+
 
     public void RemoveDuplicates()
     {

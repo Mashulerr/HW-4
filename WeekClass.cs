@@ -1,20 +1,15 @@
 namespace hw3{
 
-    public sealed class WeekArray : Array {
+class DaysOfWeek : IPrint
+{
+    private static string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-         private string[] days;
-        public WeekArray(string[] days){
-           
-            private static string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
-    public override void Print()
-     {
-        Console.WriteLine("Дни недели:");
-        foreach (string el in days)
+    public void Print()
+    {
+        foreach (string day in days)
         {
-            Console.WriteLine(el);
+            Console.WriteLine(day);
         }
-     }
-   }
- }
+    }
+}
 }

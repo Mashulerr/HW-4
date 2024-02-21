@@ -4,22 +4,37 @@ namespace hw3{
     {
         public static void Main(string[] args)
         {
-            OneDimensionalArray arr1 = new OneDimensionalArray (new int[] { 5, 12, 13, 16 });
-            arr1.Print();
-            Console.WriteLine("Среднее значение в одномерном массиве: " + arr1.Average());
 
-            TwoDimensionalArray arr2 = new TwoDimensionalArray(new int[,] { { 5, 12, 13, 16 }, { 5, 12, 13, 16} });
-            arr2.Print();
-            Console.WriteLine("Среднее значение в двумерном массиве: " + arr2.Average());
-
-            JuggedArray arr3 = new JuggedArray(new int[][] {new int[] { 15, 19 }, new int[] { 17, 18 }, new int[] { 18, 19, 35, 34 }});
-            arr3.Print();
-            Console.WriteLine("Среднее значение в зубчатом массиве: " + arr3.Average());
-
-            WeekArray daysOfWeek = new WeekArray();
-            daysOfWeek.Print();
-
-    
+          int length = 3;
+          int[] array1 = new int[length];
+          int rows = 4;
+          int columns = 6;
+          int[,] array2 = new int[rows, columns];
+          int cols = 5;
+          int row = 3;
+          int[][] array3 = new int[row][];
+          for (int i = 0; i < row; i++)
+        {
+            array3[i] = new int[cols];
         }
-    }
+           
+            IArray[] arr  = new IArray[3]; 
+     
+    Console.WriteLine("Введите false, если хотите рандомный ввод или введите true"); 
+ 
+ 
+    bool obj = bool.Parse(Console.ReadLine()); 
+     
+    arr[0] = new OneDimensionalArray( array1, length, obj );      
+    arr[1] = new TwoDimensionalArray(array2, rows, columns, obj); 
+    arr[2]= new JuggedArray(array3, row, cols, obj); 
+   
+ 
+    for (int i = 0; i < arr.Length; i++) { 
+      arr[i].Print(); 
+      arr[i].Average(); 
+    } 
+ 
+   }
+ }
 }

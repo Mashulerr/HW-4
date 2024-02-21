@@ -1,6 +1,6 @@
 namespace hw3{
 
-public sealed class JuggedArray : Array {
+public sealed class JuggedArray : BaseArray {
 
      private int[][] _arr3;
         public JuggedArray(int[][] array, int rows, int cols, bool userFilled = false){
@@ -11,19 +11,17 @@ public sealed class JuggedArray : Array {
         {
             _arr3[i] = new int[cols];
         }
-
-        this.userFilled = userFilled;
-        if (!userFilled)
+        if (userFilled)
         {
-            FillRandomly();
+            FillArrayByUser();
         }
         else
         {
-            FillByUser();
+            FillRandomly();
         }
     }
 
-    public void FillRandomly()
+    public override void FillRandomly()
     {
         Random random = new Random();
         for (int i = 0; i < _arr3.Length; i++)
@@ -35,7 +33,7 @@ public sealed class JuggedArray : Array {
         }
     }
 
-    public void FillByUser()
+    public override  void FillArrayByUser()
     {
         for (int i = 0; i < _arr3.Length; i++)
         {

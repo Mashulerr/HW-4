@@ -12,10 +12,12 @@ namespace hw3
          public void FillArrayByUser();
          public void FillRandomly();
 
+         public void Print();
+
     }
 
 
-    public abstract class Array : IPrint, IArray
+    public abstract class BaseArray : IPrint, IArray
     {
         public abstract void Print();
          public abstract  double Average();
