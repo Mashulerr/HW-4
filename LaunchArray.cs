@@ -1,7 +1,7 @@
 namespace hw3
 {
 
-    interface IGenerator<T>
+    interface IGenerator< out T>
     {
          T GenerateRandom();
     }

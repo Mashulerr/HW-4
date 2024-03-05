@@ -5,7 +5,8 @@ namespace hw3{
     public sealed class TwoDimensionalArray<T> : BaseArray {
 
         private T[,]  _arr2;
-        public TwoDimensionalArray(T[,] array, int rows, int columns, bool userFilled = false){
+        private IGenerator<T> _Generator;
+        public TwoDimensionalArray(IGenerator<T> ElementGenerator, T[,] array, int rows, int columns, bool userFilled = false){
             _arr2 = array;
 
             _arr2 = new T[rows, columns];
@@ -48,22 +49,7 @@ namespace hw3{
     }
 
     
-        public override double Average(){
-             double sum = 0;
-        int count = 0;
-        for (int i = 0; i < _arr2.GetLength(0); i++)
-        {
-            for (int j = 0; j < _arr2.GetLength(1); j++)
-            {
-                sum += _arr2[i, j];
-                count++;
-            }
-        }
-        return sum / count;
-    }
-
-     
-
+        
     public override void Print(){
         Console.WriteLine("Массив:");
         for(int i = 0; i < _arr2.GetLength(0); i++){

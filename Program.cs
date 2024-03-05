@@ -8,7 +8,7 @@ namespace hw3{
           int length = 3;
           int[] array1 = new int[length];
           int rows = 4;
-          int columns = 6;
+          int columns = 6; 
           int[,] array2 = new int[rows, columns];
           int cols = 5;
           int row = 3;

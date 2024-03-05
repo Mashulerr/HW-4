@@ -1,16 +1,12 @@
 namespace hw3{
-    class BoolGenerator: IGenerator<bool>
-    {
-         private static Random rnd = new Random();
-          public bool GenerateRandom()
-          {
-            bool input = false;
-            int n = rnd.Next(0, 2);
-            if (n == 1)
-            {
-                input = true;
-            }
-        return input;
-          }
+
+    class IntGenerator : IGenerator<int>
+{
+    
+    private static readonly Random rnd = new Random();
+
+    public int GenerateRandom(){
+         return rnd.Next(0, 100);
     }
+}
 }

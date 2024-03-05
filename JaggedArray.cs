@@ -1,6 +1,6 @@
 namespace hw3{
 
-public sealed class JuggedArray<T> : BaseArray {
+public sealed class JuggedArray<Y> : BaseArray {
 
      private int[][] _arr3;
         public JuggedArray(int[][] array, int rows, int cols, bool userFilled = false){
