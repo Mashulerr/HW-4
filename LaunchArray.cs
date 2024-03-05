@@ -1,6 +1,11 @@
 namespace hw3
 {
 
+    interface IGenerator<T>
+    {
+         T GenerateRandom();
+    }
+    
     interface IPrint{
 
         public void Print();
@@ -12,7 +17,8 @@ namespace hw3
          public void FillArrayByUser();
          public void FillRandomly();
 
-         public void Print();
+         
+         
 
     }
 

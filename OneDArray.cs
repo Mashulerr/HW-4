@@ -1,12 +1,12 @@
 namespace hw3{
 
-    public sealed class OneDimensionalArray : BaseArray {
+    public sealed class OneDimensionalArray<T> : BaseArray {
 
-        private int[] _arr1;
-        public OneDimensionalArray(int[] array, int length, bool userFilled = false){
+        private T[] _arr1;
+        public OneDimensionalArray(T[] array, int length, bool userFilled = false){
             _arr1 = array;
             
-            _arr1 = new int[length];
+            _arr1 = new T[length];
         if (userFilled)
         {
             FillArrayByUser();
@@ -19,10 +19,13 @@ namespace hw3{
 
     public override void FillArrayByUser()
     {
-        for (int i = 0; i < _arr1.Length; i++)
+         Console.WriteLine($"Введите элементы массива через пробел ( {typeof(T)})");
+        string input = Console.ReadLine();
+        string[] ArrayInput = input.Split();
+        for (int i = 0; i< ArrayInput.Length; i++)
         {
-            Console.Write($"Введите элемент {i + 1}: ");
-            _arr1[i] = Convert.ToInt32(Console.ReadLine());
+           T ChangeInput = (T)Convert.ChangeType(ArrayInput[i], typeof(T));
+           _arr1[i] = ChangeInput;
         }
     }
 

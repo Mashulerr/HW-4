@@ -1,12 +1,14 @@
+using System.Runtime.CompilerServices;
+
 namespace hw3{
 
-    public sealed class TwoDimensionalArray : BaseArray {
+    public sealed class TwoDimensionalArray<T> : BaseArray {
 
-         private int[,] _arr2;
-        public TwoDimensionalArray(int[,] array, int rows, int columns, bool userFilled = false){
+        private T[,]  _arr2;
+        public TwoDimensionalArray(T[,] array, int rows, int columns, bool userFilled = false){
             _arr2 = array;
 
-            _arr2 = new int[rows, columns];
+            _arr2 = new T[rows, columns];
         if (userFilled)
         {
             FillArrayByUser();
@@ -18,13 +20,18 @@ namespace hw3{
     }
     public override void FillArrayByUser()
     {
-        for (int i = 0; i < _arr2.GetLength(0); i++)
-        {
-            for (int j = 0; j < _arr2.GetLength(1); j++)
-            {
+         for (int i = 0; i < _arr2.GetLength(0); i++)
+         {
+        Console.WriteLine($"Введите элементы массива через пробел ({typeof(T)})");
+            string input = Console.ReadLine();
+            string[] ArrayInput = input.Split();
+            for (int j = 0; j < _arr2.GetLength(1); j++){
+        
                 Console.Write($"Введите числа с индексами [{i},{j}]: ");
-                _arr2[i, j] = Convert.ToInt32(Console.ReadLine());
-            }
+                T ChangeInput = (T) Convert.ChangeType(ArrayInput[ j], typeof(T));
+                 _arr2[i, j] = ChangeInput;
+         }
+            
         }
     }
 
