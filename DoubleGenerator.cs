@@ -3,8 +3,7 @@ namespace hw3{
     {
          private static readonly Random rnd = new Random();
           public double GenerateRandom(){
-            return Math.Round(Random.NextDouble(), 2);
-
+            return rnd.Next();
 
           }
     }

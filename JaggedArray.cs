@@ -1,15 +1,16 @@
 namespace hw3{
 
-public sealed class JuggedArray<Y> : BaseArray {
+public sealed class JuggedArray<T> : BaseArray {
 
-     private int[][] _arr3;
-        public JuggedArray(int[][] array, int rows, int cols, bool userFilled = false){
+     private T[][] _arr3;
+     private IGenerator<T> _Generator;
+        public JuggedArray(IGenerator<T> ElementGenerator, T[][] array, int rows, int cols, bool userFilled = false){
             _arr3 = array;
 
-             _arr3 = new int[rows][];
+             _arr3 = new T[rows][];
         for (int i = 0; i < rows; i++)
         {
-            _arr3[i] = new int[cols];
+            _arr3[i] = new T[cols];
         }
         if (userFilled)
         {
@@ -28,7 +29,7 @@ public sealed class JuggedArray<Y> : BaseArray {
         {
             for (int j = 0; j < _arr3[i].Length; j++)
             {
-                _arr3[i][j] = random.Next(100);
+                _arr3[i][j] = _Generator.GenerateRandom();
             }
         }
     }
@@ -37,27 +38,24 @@ public sealed class JuggedArray<Y> : BaseArray {
     {
         for (int i = 0; i < _arr3.Length; i++)
         {
-            Console.WriteLine($"Введите {_arr3[i].Length} элемента для строки {i + 1}:");
-            for (int j = 0; j < _arr3[i].Length; j++)
-            {
-                _arr3[i][j] = int.Parse(Console.ReadLine());
-            }
-        }
-    }
 
-    public override double Average(){
-        int sum = 0;
-        int count = 0;
-        for (int i = 0; i < _arr3.Length; i++)
-        {
+             Console.WriteLine("Введите размер массива");
+            int size = int.Parse(Console.ReadLine());
+            _arr3[i] = new T[size];
+            
+            Console.WriteLine($"Введите элементы массива через пробел ( {typeof(T)})");
+           string input = Console.ReadLine();
+            string[] ArrayInput = input.Split();
             for (int j = 0; j < _arr3[i].Length; j++)
             {
-                sum += _arr3[i][j];
-                count++;
+                T inputToType = (T)Convert.ChangeType(ArrayInput[j], typeof(T));
+                _arr3[i][j] = inputToType;
             }
+         }
         }
-        return sum/count;
-    }
+    
+
+    
 
     public override void Print(){
         Console.WriteLine("Зубчатый массив:");

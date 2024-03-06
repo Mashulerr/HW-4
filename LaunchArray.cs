@@ -13,12 +13,10 @@ namespace hw3
     }
 
     interface IArray{
-         public double Average();
+         
          public void FillArrayByUser();
          public void FillRandomly();
 
-         
-         
 
     }
 
@@ -26,7 +24,6 @@ namespace hw3
     public abstract class BaseArray : IPrint, IArray
     {
         public abstract void Print();
-         public abstract  double Average();
          public abstract void FillArrayByUser();
          public abstract void FillRandomly();
     }

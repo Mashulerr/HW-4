@@ -16,8 +16,8 @@ namespace hw3{
         {
             FillRandomly();
         }
-    }
-
+    
+        }
     public override void FillArrayByUser()
     {
          Console.WriteLine($"Введите элементы массива через пробел ( {typeof(T)})");
@@ -47,6 +47,7 @@ namespace hw3{
             Console.WriteLine(_arr1[i]);
         }
     }
+
       
     }
 }

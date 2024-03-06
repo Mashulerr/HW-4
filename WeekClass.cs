@@ -9,6 +9,7 @@ class DaysOfWeek : IPrint
         foreach (string day in days)
         {
             Console.WriteLine(day);
+        
         }
     }
 }

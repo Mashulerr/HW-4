@@ -8,7 +8,7 @@ namespace hw3{
           int length = 3;
           int[] array1 = new int[length];
           int rows = 4;
-          int columns = 6; 
+          int columns = 6;  
           int[,] array2 = new int[rows, columns];
           int cols = 5;
           int row = 3;
@@ -25,15 +25,21 @@ namespace hw3{
  
     bool obj = bool.Parse(Console.ReadLine()); 
      
-    arr[0] = new OneDimensionalArray( array1, length, obj );      
-    arr[1] = new TwoDimensionalArray(array2, rows, columns, obj); 
-    arr[2]= new JuggedArray(array3, row, cols, obj); 
-   
- 
-    for (int i = 0; i < arr.Length; i++) { 
-      arr[i].Print(); 
-      arr[i].Average(); 
-    } 
+        IPrint[] printer = new IPrint[4];
+        IGenerator<string> stringGenerator = new StringGenerator();
+        IGenerator<bool> boolGenerator = new BoolGenerator();
+        IGenerator<int> intGenerator = new IntGenerator();
+        IGenerator<double> doubleGenerator = new DoubleGenerator();
+        printer[0] = new OneDimensionalArray<int>(intGenerator,  length, obj);
+        printer[1] = new TwoDimensionalArray<bool>(boolGenerator,  rows,  columns,  obj);
+        printer[2] = new JuggedArray<double>(doubleGenerator,  array,  rows, cols, obj);
+        printer[3] = new TwoDimensionalArray<string>(stringGenerator,  rows,  columns,  obj);
+        Console.WriteLine();
+        for (int i =0; i < printer.Length; i++)
+        {
+            printer[i].Print();
+        }
+    
  
    }
  }
