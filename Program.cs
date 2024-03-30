@@ -32,7 +32,7 @@ namespace hw3{
         IGenerator<double> doubleGenerator = new DoubleGenerator();
         printer[0] = new OneDimensionalArray<int>(intGenerator,  length, obj);
         printer[1] = new TwoDimensionalArray<bool>(boolGenerator,  rows,  columns,  obj);
-        printer[2] = new JuggedArray<double>(doubleGenerator,  array,  rows, cols, obj);
+        printer[2] = new JuggedArray<double>(doubleGenerator,  array,  row, cols, obj);
         printer[3] = new TwoDimensionalArray<string>(stringGenerator,  rows,  columns,  obj);
         Console.WriteLine();
         for (int i =0; i < printer.Length; i++)
